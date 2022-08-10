@@ -9,15 +9,23 @@
         @media (max-width: em(1600)) {
             width: rem(1400);
         }
-        @media (max-width: em(1400)) {
+        @media (max-width: em(1430)) {
             width: 110%;
         }
     }
 
-    &__image {
-        height: rem(660);
+    &__image-ibg {
+        @media (min-width: $tablet) {
+            @include adaptiveValue("height", 660, 400, 1120, 991.98, 1);
+        }
+        @media (max-width: $tablet) {
+            height: rem(550);
+        }
         @media (max-width: $mobile) {
-            height: rem(740);
+            height: rem(670);
+        }
+        @media (max-width: $mobileSmall) {
+            height: rem(750);
         }
         img {
             object-position: 0 0;
@@ -46,15 +54,9 @@
     }
 
     &__bottom {
-        @include adaptiveValue("padding-top", 50, 30, 1120, 767.98, 1);
-        @include adaptiveValue("padding-bottom", 90, 30, 1120, 767.98, 1);
-        @media (min-width: em(1400)) {
-            padding-right: rem(135);
-        }
-    }
-
-    &__row {
-        padding: 0px rem(15);
+        position: relative;
+        @include adaptiveValue("padding-top", 50, 30, 1120, 991.98, 1);
+        @include adaptiveValue("padding-bottom", 90, 30, 1120, 991.98, 1);
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -62,31 +64,28 @@
 
     &__copy {
         @extend %text_2;
-        transition: color 0.5s ease 0s;
-        @media (any-hover: hover) {
-            &:hover {
-                color: $primary_01;
-            }
-        }
     }
 
     &__socials {
         display: flex;
+        align-items: center;
+        @include adaptiveValue("gap", 30, 15, 1120, 767.98, 1);
+        @media (min-width: em(1430)) {
+            padding-right: rem(135);
+        }
     }
 
     &__social-item {
         border-radius: 50%;
         background-color: $primary_01;
         width: rem(36);
+        flex: 0 0 rem(36);
         height: rem(36);
         display: flex;
         justify-content: center;
         align-items: center;
         color: $white;
         transition: background-color 0.5s ease 0s;
-        &:not(:first-child) {
-            @include adaptiveValue("margin-left", 30, 15, 1120, 767.98, 1);
-        }
         @media (any-hover: hover) {
             &:hover {
                 background-color: $secondary_01;
@@ -94,14 +93,20 @@
         }
     }
 }
+
 .content-footer {
     &__container {
         position: relative;
     }
     &__inner {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: rem(40);
         position: absolute;
         width: 100%;
-        height: 100%;
+        @include adaptiveValue("min-height", 640, 420, 1120, 991.98, 1);
+        min-height: rem(640);
         top: rem(-108);
         left: 0;
         z-index: 2;
@@ -118,13 +123,11 @@
         display: flex;
         align-items: flex-end;
         justify-content: space-between;
-        @media (min-width: em(1400)) {
+        @media (min-width: em(1430)) {
             padding-right: rem(135);
         }
-        @include adaptiveValue("margin-bottom", 165, 40, 1120, 767.98, 1);
         @media (max-width: $tablet) {
             align-items: center;
-            @include adaptiveValue("margin-bottom", 100, 25, 1120, 767.98, 1);
         }
         @media (max-width: $mobile) {
             flex-wrap: wrap;
@@ -132,32 +135,25 @@
         }
     }
 
-    &__column {
-        &:first-child {
-            flex: 0 1 rem(390);
-            @media (max-width: $tablet) {
-                flex: 0 1 40%;
-            }
-            @media (max-width: $mobile) {
-                flex: 1 1 100%;
-            }
-        }
-    }
-
     &__text {
-        @extend %text_3;
-        padding: rem(10) rem(10) rem(10) rem(50);
-        position: relative;
-        color: $white;
-        @media (min-width: $tablet) {
-            margin-bottom: rem(80);
-        }
+        flex: 0 1 rem(390);
         @media (max-width: $tablet) {
-            padding-right: rem(20);
-            @include adaptiveValue("padding-left", 40, 20, 1120, 767.98, 1);
+            flex: 0 1 40%;
         }
         @media (max-width: $mobile) {
-            margin-bottom: rem(30);
+            flex: 1 1 100%;
+        }
+        @extend %text_3;
+        padding: rem(20) 0 rem(20) rem(50);
+        position: relative;
+        color: $white;
+        @include adaptiveValue("margin-bottom", 70, 30, 1120, 991.98, 1);
+        @media (max-width: $tablet) {
+            padding-right: rem(20);
+            @include adaptiveValue("padding-left", 40, 20, 1120, 991.98, 1);
+        }
+        @media (max-width: $mobile) {
+            padding-right: 0;
             text-align: center;
         }
         &::before {
@@ -176,7 +172,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        @media (min-width: em(1400)) {
+        @media (min-width: em(1430)) {
             padding-right: rem(135);
         }
         @media (max-width: $mobileSmall) {
@@ -203,7 +199,7 @@
 
     &__list {
         display: flex;
-        @include adaptiveValue("gap", 100, 20, 1120, 767.98, 1);
+        @include adaptiveValue("gap", 100, 30, 1120, 767.98, 1);
         @media (max-width: $mobileSmall) {
             justify-content: center;
             margin-top: rem(30);
@@ -225,10 +221,10 @@
 .footer-form {
     flex: 0 1 rem(550);
     background-color: $white;
-    @include adaptiveValue("padding-top", 52, 15, 1120, 767.98, 1);
-    @include adaptiveValue("padding-bottom", 52, 15, 1120, 767.98, 1);
-    @include adaptiveValue("padding-left", 75, 20, 1120, 767.98, 1);
-    @include adaptiveValue("padding-right", 75, 20, 1120, 767.98, 1);
+    @include adaptiveValue("padding-top", 52, 15, 1120, 991.98, 1);
+    @include adaptiveValue("padding-bottom", 52, 15, 1120, 991.98, 1);
+    @include adaptiveValue("padding-left", 75, 15, 1120, 991.98, 1);
+    @include adaptiveValue("padding-right", 75, 15, 1120, 991.98, 1);
     box-shadow: 0px rem(20) rem(40) rgba(238, 77, 71, 0.1);
     border-radius: rem(10);
     @media (max-width: $tablet) {
@@ -243,8 +239,21 @@
         @include adaptiveValue("margin-bottom", 10, 5, 1120, 767.98, 1);
     }
 
-    &__input {
+    &__wrap {
+        position: relative;
         @include adaptiveValue("margin-bottom", 30, 15, 1120, 767.98, 1);
+        .form__error {
+            position: absolute;
+            bottom: 100%;
+            @include adaptiveValue("margin-bottom", 10, 5, 1120, 767.98, 1);
+            right: 0;
+            @extend %text_2;
+            line-height: math.div(40, 16);
+            color: $primary_02;
+        }
+    }
+
+    &__input {
     }
     &__btn {
         @media (max-width: $mobileSmall) {

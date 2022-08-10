@@ -22,10 +22,13 @@ textarea {
     @media (max-width: $mobile) {
         padding: 0px rem(10) 0px rem(20);
     }
-    &:focus {
+    &._form-focus {
         font-weight: 700;
         border: rem(2) solid $primary_01;
         box-shadow: 0px rem(20) rem(40) rgba(238, 77, 71, 0.2);
+    }
+    &:focus-visible {
+        outline: none;
     }
     &._form-error {
         border: rem(2) solid #ad0000;

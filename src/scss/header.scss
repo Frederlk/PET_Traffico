@@ -64,7 +64,7 @@
             top: 0;
             left: 0;
             overflow-y: auto;
-            padding: rem(90) rem(15) rem(15) rem(15);
+            padding: rem(100) rem(15) rem(15) rem(15);
             opacity: 0;
             visibility: hidden;
             background: linear-gradient(300deg, $light_04, 16%, $primary_01 92%);
@@ -89,7 +89,7 @@
 
     &__item {
         @media (max-width: $mobile) {
-            @include adaptiveValue("margin-bottom", 30, 15, 767.98, 320, 1);
+            @include adaptiveValue("margin-bottom", 30, 20, 767.98, 320, 1);
         }
     }
 
