@@ -20,6 +20,10 @@ $fontFamily: "Rubik";
 $fontSize: rem(16); // где 14(px) - размер шрифта по умолчанию из макета
 
 // Основные цвета
+$white: #fff;
+$primary_01: #ee4d47;
+$primary_02: #ad0000;
+$secondary_01: #0f264c;
 $light_01: #fef8f5;
 $mainColor: #402b2b; // Цвет шрифта по умолчанию
 
@@ -151,24 +155,20 @@ body {
 //========================================================================================================================================================
 
 .page {
-    flex: 1 1 auto;
     &__home {
-        @include adaptiv-value("margin-bottom", 490, 40, 1);
-        @media (max-width: $md3+px) {
-            @include adaptiv-value("margin-bottom", 100, 60, 1);
-        }
+        @include adaptiveValue("margin-bottom", 490, 40, 1120, 767.98, 1);
     }
     &__about {
-        @include adaptiv-value("margin-bottom", 155, 60, 1);
+        @include adaptiveValue("margin-bottom", 155, 60, 1120, 767.98, 1);
     }
     &__apply {
-        @include adaptiv-value("margin-bottom", 115, 60, 1);
+        @include adaptiveValue("margin-bottom", 115, 60, 1120, 767.98, 1);
     }
 
     &__faq {
-        @include adaptiv-value("margin-bottom", 180, 60, 1);
+        @include adaptiveValue("margin-bottom", 180, 60, 1120, 767.98, 1);
     }
     &__slider {
-        @include adaptiv-value("margin-bottom", 330, 180, 1);
+        @include adaptiveValue("margin-bottom", 330, 180, 1120, 767.98, 1);
     }
 }

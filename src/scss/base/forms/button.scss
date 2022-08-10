@@ -5,33 +5,33 @@
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    padding: 0px 24px;
-    height: 60px;
-    background-color: #ee4d47;
-    border: 1px solid #ee4d47;
-    border-radius: 5px;
-    color: #fff;
-    transition: all 0.5s ease 0s;
-    @extend .label;
+    padding: 0px rem(24);
+    height: rem(60);
+    background-color: $primary_01;
+    border: rem(1) solid $primary_01;
+    border-radius: rem(5);
+    color: $white;
+    transition: color 0.5s ease 0s, background-color 0.5s ease 0s;
+    @extend %label;
     &::after {
-        font-size: 12px;
-        margin: 0px 0px 0px 24px;
-        transition: all 0.5s ease 0s;
+        font-size: rem(12);
+        margin-left: rem(24);
+        transition: color 0.5s ease 0s;
     }
-    @media (max-width: $md3+px) {
-        height: 50px;
-        padding: 0px 12px;
+    @media (max-width: $mobile) {
+        height: rem(50);
+        padding: 0px rem(12);
         &::after {
-            color: #fff;
-            margin: 0px 0px 0px 12px;
+            color: $white;
+            margin-left: rem(12);
         }
     }
-    @media (min-width: 992px) {
+    @media (any-hover: hover) {
         &:hover {
-            color: #402b2b;
-            background-color: #fff;
+            color: $mainColor;
+            background-color: $white;
             &::after {
-                color: #402b2b;
+                color: $mainColor;
             }
         }
     }
