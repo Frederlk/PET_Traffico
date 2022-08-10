@@ -4,7 +4,7 @@
     }
 
     &__inner {
-        @include adaptiv-value("margin-top", 190, 160, 1);
+        @include adaptiveValue("margin-top", 190, 160, 1120, 767.98, 1);
         position: absolute;
         width: 100%;
         height: 100%;
@@ -13,12 +13,12 @@
         left: 0;
         z-index: 10;
         max-width: 740px;
-        @media (max-width: $md2+px) {
+        @media (max-width: $tablet) {
             @media screen and (orientation: landscape) {
-                @include adaptiv-value("margin-top", 120, 100, 1);
+                @include adaptiveValue("margin-top", 120, 100, 1120, 767.98, 1);
             }
         }
-        @media (max-width: $md3+px) {
+        @media (max-width: $mobile) {
             max-width: none;
             text-align: center;
         }
@@ -26,10 +26,10 @@
 
     &__title {
         font-family: "DM Serif Display";
-        @include adaptiv-font(100, 45, 1);
+        @include adaptiveValue("font-size", 160, 45, 1120, 767.98, 1);
         line-height: 100%;
-        color: #ffffff;
-        @include adaptiv-value("margin-bottom", 60, 20, 1);
+        color: $white;
+        @include adaptiveValue("margin-bottom", 60, 20, 1120, 767.98, 1);
     }
 
     &__btn {
@@ -52,7 +52,7 @@
         position: relative;
         height: 800px;
         max-height: 100vh;
-        @media (max-width: $md2+px) {
+        @media (max-width: $tablet) {
             @media screen and (orientation: landscape) {
                 max-height: 650px;
             }
@@ -65,7 +65,7 @@
             height: 100%;
             top: 0;
             left: 0;
-            background: linear-gradient(297.99deg, #ffedba 16.76%, #ee4d47 92%);
+            background: linear-gradient(297.99deg, #ffedba 16.76%, $primary_01 92%);
             border-bottom-right-radius: 100px;
             @media (min-width: 1600px) {
                 border-bottom-right-radius: 20%;
@@ -102,7 +102,7 @@
         img {
             max-width: 100%;
         }
-        @media (max-width: $md3+px) {
+        @media (max-width: $mobile) {
             transform: translate(0px, -5%);
             min-width: 50%;
         }
@@ -118,7 +118,7 @@
         img {
             max-width: 100%;
         }
-        @media (max-width: $md3+px) {
+        @media (max-width: $mobile) {
             transform: translate(0px, -10%);
             min-width: 30%;
         }
@@ -134,10 +134,10 @@
     &__content {
         display: flex;
         margin: 0px -12px;
-        @media (max-width: $md2+px) {
+        @media (max-width: $tablet) {
             margin: 0px;
         }
-        @media (max-width: $md3+px) {
+        @media (max-width: $mobile) {
             flex-wrap: wrap;
             justify-content: center;
             text-align: center;
@@ -147,7 +147,7 @@
     &__column {
         flex: 0 1 50%;
         padding: 0px 12px;
-        @media (max-width: $md2+px) {
+        @media (max-width: $tablet) {
             flex: 1 1 100%;
             padding: 0;
         }
@@ -155,23 +155,23 @@
 }
 .about-info {
     margin-top: 75px;
-    @media (max-width: $md2+px) {
+    @media (max-width: $tablet) {
         margin-top: 0;
     }
-    @media (max-width: $md3+px) {
+    @media (max-width: $mobile) {
         order: 2;
     }
     &__title {
-        color: #ee4d47;
-        @extend .title;
-        @include adaptiv-value("margin-bottom", 40, 10, 1);
+        color: $primary_01;
+        @extend %title;
+        @include adaptiveValue("margin-bottom", 40, 10, 1120, 767.98, 1);
     }
 
     &__text {
         max-width: 470px;
-        @extend .text;
-        @include adaptiv-value("margin-bottom", 70, 35, 1);
-        @media (max-width: $md3+px) {
+        @extend %text;
+        @include adaptiveValue("margin-bottom", 70, 35, 1120, 767.98, 1);
+        @media (max-width: $mobile) {
             max-width: none;
             margin-bottom: 0;
         }
@@ -180,13 +180,13 @@
     &__bottom {
         background: hsla(13, 87%, 91%, 0.4);
         position: relative;
-        @include adaptiv-value("padding-right", 55, 15, 1);
-        @include adaptiv-value("padding-top", 30, 15, 1);
-        @include adaptiv-value("padding-left", 55, 15, 1);
-        @include adaptiv-value("padding-bottom", 30, 15, 1);
+        @include adaptiveValue("padding-right", 55, 15, 1120, 767.98, 1);
+        @include adaptiveValue("padding-top", 30, 15, 1120, 767.98, 1);
+        @include adaptiveValue("padding-left", 55, 15, 1120, 767.98, 1);
+        @include adaptiveValue("padding-bottom", 30, 15, 1120, 767.98, 1);
         &::before {
             content: "";
-            background-color: #ed4d47;
+            background-color: $primary_03;
             position: absolute;
             width: 10px;
             height: 100%;
@@ -194,27 +194,27 @@
             left: 0;
             border-radius: 5px 0 0px 5px;
         }
-        @media (max-width: $md2+px) {
+        @media (max-width: $tablet) {
             margin: 20px 0px 0px 0px;
         }
-        @media (max-width: $md3+px) {
+        @media (max-width: $mobile) {
             text-align: center;
         }
     }
 
     &__link {
-        @extend .link;
-        color: #402b2b;
+        @extend %link;
+        color: $mainColor;
         transition: all 0.5s ease 0s;
-        @media (min-width: $md2+px) {
+        @media (min-width: $tablet) {
             &:hover {
-                color: #ed4d47;
+                color: $primary_03;
             }
         }
     }
 }
 .about-image {
-    @media (max-width: $md3+px) {
+    @media (max-width: $mobile) {
         order: 1;
         flex: 0 1 50%;
         margin: 0px 0px 20px 0px;
@@ -237,10 +237,10 @@
         display: flex;
         margin: 0px -25px;
         justify-content: space-between;
-        @media (max-width: $md1+px) {
+        @media (max-width: $pc) {
             margin: 0px -12px;
         }
-        @media (max-width: $md3+px) {
+        @media (max-width: $mobile) {
             flex-wrap: wrap;
             justify-content: center;
         }
@@ -248,7 +248,7 @@
 
     &__column {
         padding: 0px 25px;
-        @media (max-width: $md1+px) {
+        @media (max-width: $pc) {
             padding: 0px 12px;
         }
     }
@@ -256,7 +256,7 @@
 .apply-image {
     flex: 0 1 780px;
     margin: 0px 0px 0px -120px;
-    @media (max-width: $md1+px) {
+    @media (max-width: $pc) {
         margin: 0px;
         flex: 0 1 50%;
         min-width: 250px;
@@ -265,7 +265,7 @@
         img {
             max-width: 100%;
         }
-        @media (max-width: $md1+px) {
+        @media (max-width: $pc) {
             transform: scale(1.4);
         }
     }
@@ -273,17 +273,17 @@
 .apply-unfo {
     flex: 0 1 505px;
     margin-top: 100px;
-    @media (max-width: $md1+px) {
+    @media (max-width: $pc) {
         flex: 0 1 50%;
-        @include adaptiv-value("margin-top", 40, 0, 1);
+        @include adaptiveValue("margin-top", 40, 0, 1120, 767.98, 1);
     }
-    @media (max-width: $md3+px) {
+    @media (max-width: $mobile) {
         flex: 1 1 100%;
         text-align: center;
     }
     &__title {
-        @include adaptiv-value("margin-bottom", 40, 10, 1);
-        color: #ee4d47;
+        @include adaptiveValue("margin-bottom", 40, 10, 1120, 767.98, 1);
+        color: $primary_01;
     }
 
     &__text {
@@ -294,8 +294,8 @@
 .faq {
     &__content {
         position: relative;
-        @include adaptiv-value("padding-top", 100, 30, 1);
-        @include adaptiv-value("padding-bottom", 100, 30, 1);
+        @include adaptiveValue("padding-top", 100, 30, 1120, 767.98, 1);
+        @include adaptiveValue("padding-bottom", 100, 30, 1120, 767.98, 1);
     }
 
     &__container {
@@ -307,11 +307,11 @@
         display: flex;
         align-items: flex-end;
         justify-content: space-between;
-        @include adaptiv-value("margin-bottom", 90, 40, 1);
+        @include adaptiveValue("margin-bottom", 90, 40, 1120, 767.98, 1);
         @media (max-width: 1300px) {
             align-items: center;
         }
-        @media (max-width: $md3+px) {
+        @media (max-width: $mobile) {
             flex-wrap: wrap;
             justify-content: center;
         }
@@ -324,7 +324,7 @@
             flex: 0 1 50%;
             margin: 0;
         }
-        @media (max-width: $md3+px) {
+        @media (max-width: $mobile) {
             flex: 1 1 100%;
             order: 2;
             text-align: center;
@@ -332,13 +332,13 @@
     }
 
     &__label {
-        @extend .title;
-        color: #ee4d47;
-        @include adaptiv-value("margin-bottom", 44, 20, 1);
+        @extend %title;
+        color: $primary_01;
+        @include adaptiveValue("margin-bottom", 44, 20, 1120, 767.98, 1);
     }
 
     &__title {
-        @extend .subtitle;
+        @extend %subtitle;
     }
 
     &__faq-image {
@@ -348,7 +348,7 @@
             margin: 0;
             flex: 0 1 50%;
         }
-        @media (max-width: $md3+px) {
+        @media (max-width: $mobile) {
             order: 1;
             min-width: 250px;
             margin: 0px 0px 20px 0px;
@@ -361,7 +361,7 @@
     &__bottom {
         display: flex;
         margin: 0px -10px;
-        @media (max-width: $md3+px) {
+        @media (max-width: $mobile) {
             flex-wrap: wrap;
             margin: 0;
         }
@@ -370,7 +370,7 @@
     &__bottom-column {
         flex: 0 1 50%;
         padding: 0px 10px;
-        @media (max-width: $md3+px) {
+        @media (max-width: $mobile) {
             flex: 1 1 100%;
             padding: 0;
         }
@@ -386,18 +386,18 @@
         justify-content: space-between;
         min-height: 90px;
         position: relative;
-        background-color: #fff;
+        background-color: $white;
         box-shadow: 0px 20px 40px rgba(238, 77, 71, 0.1);
         border-radius: 10px;
         padding: 0px 115px 0 35px;
         font-weight: 500;
         font-size: 18px;
-        line-height: 30 / 18 * 100%;
+        line-height: math.div(30, 18);
         cursor: pointer;
-        @media (max-width: $md2+px) {
+        @media (max-width: $tablet) {
             padding: 10px 95px 10px 35px;
         }
-        @media (max-width: $md3+px) {
+        @media (max-width: $mobile) {
             padding: 10px 35px 10px 15px;
             &::before {
                 right: 15px;
@@ -414,7 +414,7 @@
             transform: translate(0, -50%);
             width: 2px;
             height: 20px;
-            background-color: #ee4d47;
+            background-color: $primary_01;
             transition: all 0.3s ease 0s;
         }
         &::before {
@@ -425,7 +425,7 @@
             transform: translate(0, -50%);
             width: 20px;
             height: 2px;
-            background-color: #ee4d47;
+            background-color: $primary_01;
         }
         &._active {
             &::after {
@@ -437,20 +437,20 @@
 
     &__spoller-body {
         display: none;
-        background: #fff7f5;
+        background: $light_02;
         box-shadow: 0px 20px 40px rgba(238, 77, 71, 0.1);
         border-radius: 10px;
         padding: 41px 35px 61px 35px;
         margin: 0px 0px 50px 0px;
-        @media (max-width: $md3+px) {
+        @media (max-width: $mobile) {
             padding: 20px 15px 20px 15px;
             margin-bottom: 20px;
         }
     }
 
     &__spoller-text {
-        font-size: 18px;
-        line-height: 30 / 18 * 100%;
+        font-size: rem(18);
+        line-height: math.div(30, 18);
         font-weight: 300;
     }
     &__load {
@@ -477,19 +477,19 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        color: #ed4d47;
+        color: $primary_03;
         font-weight: 500;
         font-size: 18px;
-        line-height: 30 / 18 * 100%;
+        line-height: math.div(30, 18);
         text-transform: uppercase;
         letter-spacing: 0.05em;
         transition: all 0.5s ease 0s;
-        @media (max-width: $md3+px) {
+        @media (max-width: $mobile) {
             flex: 1 1 100%;
         }
-        @media (min-width: $md2+px) {
+        @media (min-width: $tablet) {
             &:hover {
-                color: #402b2b;
+                color: $mainColor;
             }
         }
         &::after {
@@ -500,7 +500,7 @@
             transform: translate(0, -50%);
             width: 2px;
             height: 20px;
-            background-color: #ee4d47;
+            background-color: $primary_01;
             transition: all 0.3s ease 0s;
         }
         &::before {
@@ -511,7 +511,7 @@
             transform: translate(0, -50%);
             width: 20px;
             height: 2px;
-            background-color: #ee4d47;
+            background-color: $primary_01;
         }
         &._active {
             &::after {
@@ -527,7 +527,7 @@
         height: 100%;
         top: 0;
         right: 0;
-        background-color: #fdede8;
+        background-color: $light_03;
         border-top-left-radius: 10%;
         @media (min-width: 1600px) {
             width: 73%;
@@ -548,13 +548,13 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        @include adaptiv-value("margin-bottom", 44, 20, 1);
+        @include adaptiveValue("margin-bottom", 44, 20, 1120, 767.98, 1);
     }
 
     &__title {
         margin: 0px 12px 0px 0px;
-        @extend .title;
-        color: #ee4d47;
+        @extend %title;
+        color: $primary_01;
     }
 
     &__navigation {
@@ -567,7 +567,7 @@
         opacity: 0.5;
         transition: all 0.5s ease 0s;
         cursor: pointer;
-        @media (min-width: $md2+px) {
+        @media (min-width: $tablet) {
             &:hover {
                 opacity: 1;
             }
@@ -591,7 +591,7 @@
             top: 0;
             left: 0;
             transform: translate(0, -25%);
-            background: linear-gradient(90deg, rgba(254, 248, 245, 1) 50%, rgba(254, 248, 245, 0) 100%);
+            background: linear-gradient(90deg, $white, 50%, rgba(254, 248, 245, 0) 100%);
         }
         @media (max-width: 1350px) {
             &::before {
@@ -617,7 +617,7 @@
             margin: 0px 15px 0px 0px;
             z-index: 10;
             h2 {
-                @extend .subtitle;
+                @extend %subtitle;
             }
         }
         @media (max-width: 1350px) {
@@ -630,7 +630,7 @@
                 }
             }
         }
-        @media (max-width: $md3+px) {
+        @media (max-width: $mobile) {
             &:first-child {
                 text-align: center;
             }
@@ -660,7 +660,7 @@
         @media (max-width: 1350px) {
             padding: 0px 15px;
         }
-        @media (min-width: $md2+px) {
+        @media (min-width: $tablet) {
             &.swiper-slide-prev {
                 opacity: 0;
             }
@@ -672,11 +672,11 @@
         display: flex;
         flex-direction: column;
         height: 100%;
-        background-color: #fff;
-        @include adaptiv-value("padding-top", 60, 20, 1);
-        @include adaptiv-value("padding-bottom", 40, 20, 1);
-        @include adaptiv-value("padding-right", 50, 20, 1);
-        @include adaptiv-value("padding-left", 50, 20, 1);
+        background-color: $white;
+        @include adaptiveValue("padding-top", 60, 20, 1120, 767.98, 1);
+        @include adaptiveValue("padding-bottom", 40, 20, 1120, 767.98, 1);
+        @include adaptiveValue("padding-right", 50, 20, 1120, 767.98, 1);
+        @include adaptiveValue("padding-left", 50, 20, 1120, 767.98, 1);
         box-shadow: 0px 20px 40px rgba(238, 77, 71, 0.1);
         border-radius: 10px;
     }
@@ -684,8 +684,8 @@
     &__text {
         flex: 1 1 auto;
         margin: 0px 0px 20px 0px;
-        @include adaptiv-value("margin-bottom", 50, 10, 1);
-        @extend .text_2;
+        @include adaptiveValue("margin-bottom", 50, 10, 1120, 767.98, 1);
+        @extend %text_2;
     }
 
     &__bottom {
@@ -707,7 +707,6 @@
     &__name {
         font-family: "Roboto";
         font-weight: 700;
-        font-size: 16px;
-        line-height: 30 / 16 * 100%;
+        line-height: math.div(30, 16);
     }
 }
