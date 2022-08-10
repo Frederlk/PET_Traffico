@@ -1,40 +1,38 @@
 <footer class="footer">
     <div class="footer__content content-footer">
-        <div class="content-footer__container _container">
+        <div class="content-footer__container">
             <div class="content-footer__inner">
                 <div class="content-footer__top">
-                    <div class="content-footer__column">
-                        <div class="content-footer__text">
-                            We provide traffic management consultants so you get started quickly, contact us for a quote today!
-                        </div>
-                    </div>
-                    <div class="content-footer__column footer-form">
-                        <form action="#" class="footer-form__form">
-                            <div class="footer-form__label">Name</div>
-                            <input
-                                autocomplete="off"
-                                type="text"
-                                name="form[]"
-                                data-error="Error"
-                                data-value="Your Name"
-                                class="footer-form__input _req input"
-                            />
-                            <div class="footer-form__label">Email address</div>
-                            <input
-                                autocomplete="off"
-                                type="email"
-                                name="form[]"
-                                data-error="Error"
-                                data-value="Your email address"
-                                class="footer-form__input _req _email input"
-                            />
-                            <button type="submit" class="footer-form__btn btn _icon-Union">GET STARTED</button>
-                        </form>
-                    </div>
+                    <p class="content-footer__text">
+                        We provide traffic management consultants so you get started quickly, contact us for a quote today!
+                    </p>
+                    <form action="#" date-dev class="content-footer__form footer-form">
+                        <div class="footer-form__label">Name</div>
+                        <input
+                            autocomplete="off"
+                            type="text"
+                            name="name"
+                            data-error="Error"
+                            placeholder="Your Name"
+                            class="input"
+                            date-required
+                        />
+                        <div class="footer-form__label">Email address</div>
+                        <input
+                            autocomplete="off"
+                            type="text"
+                            name="name"
+                            data-error="Error"
+                            placeholder="Your email address"
+                            class="input"
+                            date-required="email"
+                        />
+                        <button type="submit" class="footer-form__btn btn _icon-Union">GET STARTED</button>
+                    </form>
                 </div>
                 <div class="content-footer__bottom">
                     <div class="content-footer__logo">
-                        <img src="img/Logo.png" alt="" />
+                        <img src="@img/Logo.png" alt="logo" />
                     </div>
                     <nav class="content-footer__menu">
                         <ul class="content-footer__list">
@@ -47,25 +45,23 @@
             </div>
         </div>
         <div class="footer__bg">
-            <div class="footer__image _ibg">
-                <img src="img/footer/bg.png" alt="" />
+            <div class="footer__image-ibg">
+                <img src="@img/footer/bg.png" alt="background" />
             </div>
             <div class="footer__truck">
-                <img src="img/footer/truck.png" alt="" />
+                <img src="@img/footer/truck.png" alt="truck" />
             </div>
             <div class="footer__line">
-                <img src="img/footer/line.png" alt="" />
+                <img src="@img/footer/line.png" alt="line" />
             </div>
         </div>
     </div>
-    <div class="footer__bottom _container">
-        <div class="footer__row">
-            <a href="#" class="footer__copy"> Copyright @ 2019 </a>
-            <div class="footer__socials">
-                <a href="" class="footer__social-item _icon-facebook"></a>
-                <a href="" class="footer__social-item _icon-twitter"></a>
-                <a href="" class="footer__social-item _icon-arrow"></a>
-            </div>
+    <div class="footer__bottom">
+        <span class="footer__copy">Copyright @ 2019</span>
+        <div class="footer__socials">
+            <a href="https://www.facebook.com/petrinichshadow" class="footer__social-item _icon-facebook"></a>
+            <a href="https://github.com/Frederlk" class="footer__social-item _icon-twitter"></a>
+            <a href="https://www.instagram.com/_frederlk_/" class="footer__social-item _icon-arrow"></a>
         </div>
     </div>
 </footer>
