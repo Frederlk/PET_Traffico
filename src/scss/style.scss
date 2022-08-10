@@ -151,7 +151,7 @@ body {
 
 .page {
     &__home {
-        @include adaptiveValue("margin-bottom", 490, 40, 1120, 767.98, 1);
+        @include adaptiveValue("margin-bottom", 390, 40, 1120, 767.98, 1);
     }
     &__about {
         @include adaptiveValue("margin-bottom", 155, 60, 1120, 767.98, 1);
