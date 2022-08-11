@@ -151,7 +151,13 @@ body {
 
 .page {
     &__home {
-        @include adaptiveValue("margin-bottom", 390, 40, 1120, 767.98, 1);
+        @include adaptiveValue("margin-bottom", 490, 300, 1120, 991.98, 1);
+        @media (max-width: $tablet) {
+            @include adaptiveValue("margin-bottom", 350, 250, 991.98, 767.98, 1);
+        }
+        @media (max-width: $mobile) {
+            margin-bottom: rem(60);
+        }
     }
     &__about {
         @include adaptiveValue("margin-bottom", 155, 60, 1120, 767.98, 1);

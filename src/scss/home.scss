@@ -159,38 +159,24 @@
 
 .about {
     &__container {
-    }
-
-    &__content {
         display: flex;
-        margin: 0px -12px;
+        gap: rem(25);
         @media (max-width: $tablet) {
-            margin: 0px;
+            flex-wrap: wrap;
         }
         @media (max-width: $mobile) {
-            flex-wrap: wrap;
             justify-content: center;
             text-align: center;
         }
     }
 
-    &__column {
-        flex: 0 1 50%;
-        padding: 0px 12px;
-        @media (max-width: $tablet) {
-            flex: 1 1 100%;
-            padding: 0;
+    &__info {
+        @media (min-width: $mobile) {
+            flex: 0 1 50%;
+            @include adaptiveValue("margin-top", 75, 25, 991.98, 767.98, 1);
         }
     }
-}
-.about-info {
-    margin-top: 75px;
-    @media (max-width: $tablet) {
-        margin-top: 0;
-    }
-    @media (max-width: $mobile) {
-        order: 2;
-    }
+
     &__title {
         color: $primary_01;
         @extend %title;
@@ -198,22 +184,20 @@
     }
 
     &__text {
-        max-width: 470px;
         @extend %text;
-        @include adaptiveValue("margin-bottom", 70, 35, 1120, 767.98, 1);
-        @media (max-width: $mobile) {
-            max-width: none;
-            margin-bottom: 0;
+        @media (min-width: $tablet) {
+            max-width: rem(470);
+            @include adaptiveValue("margin-bottom", 70, 35, 1120, 767.98, 1);
         }
     }
 
     &__bottom {
-        background: hsla(13, 87%, 91%, 0.4);
+        background-color: hsla(13, 87%, 91%, 0.4);
         position: relative;
-        @include adaptiveValue("padding-right", 55, 15, 1120, 767.98, 1);
-        @include adaptiveValue("padding-top", 30, 15, 1120, 767.98, 1);
-        @include adaptiveValue("padding-left", 55, 15, 1120, 767.98, 1);
-        @include adaptiveValue("padding-bottom", 30, 15, 1120, 767.98, 1);
+        @include adaptiveValue("padding-right", 55, 15, 1120, 479.98, 1);
+        @include adaptiveValue("padding-top", 30, 15, 1120, 479.98, 1);
+        @include adaptiveValue("padding-left", 55, 15, 1120, 479.98, 1);
+        @include adaptiveValue("padding-bottom", 30, 15, 1120, 479.98, 1);
         &::before {
             content: "";
             background-color: $primary_03;
@@ -222,10 +206,10 @@
             height: 100%;
             top: 0;
             left: 0;
-            border-radius: 5px 0 0px 5px;
+            border-radius: rem(5) 0 0px rem(5);
         }
         @media (max-width: $tablet) {
-            margin: 20px 0px 0px 0px;
+            flex: 1 1 100%;
         }
         @media (max-width: $mobile) {
             text-align: center;
@@ -235,22 +219,23 @@
     &__link {
         @extend %link;
         color: $mainColor;
-        transition: all 0.5s ease 0s;
-        @media (min-width: $tablet) {
+        transition: color 0.5s ease 0s;
+        @media (any-hover: hover) {
             &:hover {
                 color: $primary_03;
             }
         }
     }
-}
-.about-image {
-    @media (max-width: $mobile) {
-        order: 1;
-        flex: 0 1 50%;
-        margin: 0px 0px 20px 0px;
-        min-width: 250px;
-    }
+
     &__image {
+        @media (min-width: $mobile) {
+            flex: 0 1 calc(50% - rem(25));
+        }
+        @media (max-width: $mobile) {
+            flex: 0 1 50%;
+            min-width: rem(290);
+            order: -1;
+        }
         img {
             max-width: 100%;
         }
@@ -319,6 +304,7 @@
     &__text {
     }
 }
+
 //========================================================================================================================================================
 
 .faq {
