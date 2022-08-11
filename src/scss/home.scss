@@ -291,6 +291,7 @@
 
     &__title {
         @extend %title;
+        text-transform: uppercase;
         @include adaptiveValue("margin-bottom", 40, 10, 1120, 767.98, 1);
         color: $primary_01;
     }
@@ -422,7 +423,7 @@
         color: $primary_03;
         text-transform: uppercase;
         letter-spacing: 0.05em;
-        transition: color 0.5s ease 0s;
+        transition: color 0.5s ease 0s, box-shadow 0.5s ease 0s;
         @media (min-width: $mobile) {
             width: calc(50% - rem(10));
             margin-left: auto;
@@ -432,6 +433,7 @@
         }
         @media (any-hover: hover) {
             &:hover {
+                box-shadow: 0px rem(20) rem(40) rgba(238, 77, 71, 0.2);
                 color: $mainColor;
             }
         }
@@ -467,99 +469,88 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        gap: rem(25);
         @include adaptiveValue("margin-bottom", 44, 20, 1120, 767.98, 1);
     }
 
     &__title {
-        margin: 0px 12px 0px 0px;
         @extend %title;
         color: $primary_01;
     }
 
     &__navigation {
-        margin: 0px 0px 0px 12px;
+        gap: rem(30);
         display: flex;
         align-items: center;
     }
 
     &__nav {
         opacity: 0.5;
-        transition: all 0.5s ease 0s;
+        transition: opacity 0.5s ease 0s;
         cursor: pointer;
-        @media (min-width: $tablet) {
+        @media (any-hover: hover) {
             &:hover {
                 opacity: 1;
             }
         }
-    }
-    &__nav-prev {
-    }
+        &_prev {
+        }
 
-    &__nav-next {
-        margin: 0px 0px 0px 30px;
+        &_next {
+        }
     }
 
     &__bottom {
-        position: relative;
-        &::before {
-            content: "";
-            position: absolute;
-            z-index: 5;
-            width: 30%;
-            height: 200%;
-            top: 0;
-            left: 0;
-            transform: translate(0, -25%);
-            background: linear-gradient(90deg, $white, 50%, rgba(254, 248, 245, 0) 100%);
-        }
-        @media (max-width: 1350px) {
-            &::before {
-                display: none;
-            }
-        }
     }
-    &__bottom-container {
-        display: flex;
-        min-width: 0;
-        @media (max-width: 1350px) {
-            flex-wrap: wrap;
-            justify-content: center;
-            padding: 0;
+}
+
+.bottom-slider {
+    position: relative;
+    &::before {
+        content: "";
+        position: absolute;
+        z-index: 5;
+        width: 30%;
+        height: 200%;
+        top: 0;
+        left: 0;
+        transform: translate(0, -25%);
+        background: linear-gradient(90deg, $white, 90%, rgba(254, 248, 245, 0) 100%);
+    }
+    @media (max-width: em(1350)) {
+        &::before {
+            display: none;
         }
     }
 
-    &__column {
+    &__container {
+        position: relative;
+        display: flex;
+        gap: rem(20);
         min-width: 0;
-        &:first-child {
-            flex: 0 0 30%;
-            position: relative;
-            margin: 0px 15px 0px 0px;
-            z-index: 10;
-            h2 {
-                @extend %subtitle;
-            }
+        @media (max-width: em(1350)) {
+            flex-wrap: wrap;
+            justify-content: center;
         }
-        @media (max-width: 1350px) {
-            flex: 1 1 100%;
-            &:first-child {
-                margin: 0px 0px 30px 0px;
-                flex: 1 1 100%;
-                h2 {
-                    padding: 0px 15px;
-                }
-            }
+    }
+
+    &__title-big {
+        position: relative;
+        z-index: 10;
+        @extend %subtitle;
+        @media (min-width: em(1350)) {
+            flex: 0 0 percent(360, 1120);
         }
         @media (max-width: $mobile) {
-            &:first-child {
-                text-align: center;
-            }
+            text-align: center;
         }
     }
 
     &__slider {
-        overflow: visible;
-        margin: 0px -100px 0px 0px;
-        @media (max-width: 1350px) {
+        min-width: 0;
+        overflow: visible !important;
+        margin-right: rem(-100);
+        @media (max-width: em(1350)) {
             margin: 0;
             .swiper-wrapper {
                 justify-content: space-between;
@@ -567,57 +558,53 @@
         }
     }
 
-    &__slide {
-        opacity: 0.5;
-        transition: all 0.8s ease 0s;
-        padding: 0px 10px;
-        opacity: 0;
-        &.swiper-slide-next,
-        &.swiper-slide-active {
-            opacity: 1;
-        }
-        @media (max-width: 1350px) {
-            padding: 0px 15px;
-        }
-        @media (min-width: $tablet) {
-            &.swiper-slide-prev {
-                opacity: 0;
-            }
-        }
-    }
-}
-.slider-slide {
-    &__body {
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        background-color: $white;
-        @include adaptiveValue("padding-top", 60, 20, 1120, 767.98, 1);
-        @include adaptiveValue("padding-bottom", 40, 20, 1120, 767.98, 1);
-        @include adaptiveValue("padding-right", 50, 20, 1120, 767.98, 1);
-        @include adaptiveValue("padding-left", 50, 20, 1120, 767.98, 1);
-        box-shadow: 0px 20px 40px rgba(238, 77, 71, 0.1);
-        border-radius: 10px;
+    &__wrapper {
     }
 
+    &__slide {
+    }
+}
+
+.swiper-slide {
+    opacity: 0.5;
+    transition: opacity 0.8s ease 0s, visibility 0.8s ease 0s;
+    background-color: $white;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    @include adaptiveValue("padding-top", 60, 20, 1120, 767.98, 1);
+    @include adaptiveValue("padding-bottom", 40, 20, 1120, 767.98, 1);
+    @include adaptiveValue("padding-right", 50, 20, 1120, 767.98, 1);
+    @include adaptiveValue("padding-left", 50, 20, 1120, 767.98, 1);
+    box-shadow: 0px rem(20) rem(40) rgba(238, 77, 71, 0.1);
+    border-radius: rem(10);
+    &.swiper-slide-next,
+    &.swiper-slide-active {
+        opacity: 1;
+        visibility: visible;
+    }
+    @media (min-width: $tablet) {
+        &.swiper-slide-prev {
+            opacity: 0;
+        }
+    }
     &__text {
         flex: 1 1 auto;
-        margin: 0px 0px 20px 0px;
-        @include adaptiveValue("margin-bottom", 50, 10, 1120, 767.98, 1);
+        @include adaptiveValue("margin-bottom", 50, 20, 1120, 767.98, 1);
         @extend %text_2;
     }
 
     &__bottom {
         display: flex;
         align-items: center;
+        gap: rem(20);
     }
 
-    &__avatar {
-        flex: 0 0 60px;
-        height: 60px;
+    &__avatar-ibg {
+        flex: 0 0 rem(60);
+        height: rem(60);
         overflow: hidden;
         border-radius: 50%;
-        margin: 0px 20px 0px 0px;
         img {
             max-width: 100%;
         }

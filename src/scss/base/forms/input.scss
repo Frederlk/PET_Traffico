@@ -31,6 +31,6 @@ textarea {
         outline: none;
     }
     &._form-error {
-        border: rem(2) solid #ad0000;
+        border: rem(2) solid $primary_01;
     }
 }

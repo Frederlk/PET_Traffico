@@ -8,7 +8,7 @@
     padding: 0px rem(24);
     height: rem(60);
     background-color: $primary_01;
-    border: rem(1) solid $primary_01;
+    border: rem(2) solid $primary_01;
     border-radius: rem(5);
     color: $white;
     transition: color 0.5s ease 0s, background-color 0.5s ease 0s;
@@ -29,7 +29,7 @@
     @media (any-hover: hover) {
         &:hover {
             color: $mainColor;
-            background-color: $white;
+            background-color: transparent;
             &::after {
                 color: $mainColor;
             }
