@@ -304,11 +304,8 @@
 
 .faq {
     position: relative;
-    &__content {
-        position: relative;
-        @include adaptiveValue("padding-top", 100, 30, 1120, 767.98, 1);
-        @include adaptiveValue("padding-bottom", 100, 30, 1120, 767.98, 1);
-    }
+    @include adaptiveValue("padding-top", 100, 50, 1120, 767.98, 1);
+    @include adaptiveValue("padding-bottom", 100, 50, 1120, 767.98, 1);
 
     &__container {
         position: relative;
@@ -320,7 +317,7 @@
         align-items: flex-end;
         justify-content: space-between;
         @include adaptiveValue("margin-bottom", 90, 40, 1120, 767.98, 1);
-        @media (max-width: 1300px) {
+        @media (max-width: em(1300)) {
             align-items: center;
         }
         @media (max-width: $mobile) {
@@ -330,11 +327,12 @@
     }
 
     &__info {
-        flex: 0 1 550px;
-        margin: 0px 0px 80px 0px;
-        @media (max-width: 1300px) {
+        @media (min-width: em(1300)) {
+            flex: 0 1 rem(550);
+            margin-bottom: rem(80);
+        }
+        @media (max-width: em(1300)) {
             flex: 0 1 50%;
-            margin: 0;
         }
         @media (max-width: $mobile) {
             flex: 1 1 100%;
@@ -354,188 +352,97 @@
     }
 
     &__faq-image {
-        flex: 0 1 700px;
-        margin: 0px -63px 0px -75px;
-        @media (max-width: 1300px) {
-            margin: 0;
+        @media (min-width: em(1300)) {
+            flex: 0 1 rem(700);
+            margin: 0px rem(-63) 0px rem(-75);
+        }
+        @media (max-width: em(1300)) {
             flex: 0 1 50%;
         }
         @media (max-width: $mobile) {
             order: 1;
-            min-width: 250px;
-            margin: 0px 0px 20px 0px;
+            min-width: rem(250);
+            margin-bottom: rem(20);
         }
         img {
             max-width: 100%;
         }
     }
 
-    &__bottom {
-        display: flex;
-        margin: 0px -10px;
-        @media (max-width: $mobile) {
-            flex-wrap: wrap;
-            margin: 0;
-        }
-    }
-
-    &__bottom-column {
-        flex: 0 1 50%;
-        padding: 0px 10px;
-        @media (max-width: $mobile) {
-            flex: 1 1 100%;
-            padding: 0;
+    &__bottom,
+    &__loaded {
+        @media (min-width: $mobile) {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            column-gap: rem(20);
         }
     }
 
     &__spoller {
-        margin: 0px 0px 10px 0px;
+        margin-bottom: rem(10);
     }
 
     &__spoller-title {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        min-height: 90px;
-        position: relative;
+        @extend %spoller-title;
+        width: 100%;
+        text-align: left !important;
         background-color: $white;
-        box-shadow: 0px 20px 40px rgba(238, 77, 71, 0.1);
-        border-radius: 10px;
-        padding: 0px 115px 0 35px;
-        font-weight: 500;
-        font-size: 18px;
-        line-height: math.div(30, 18);
-        cursor: pointer;
+        padding: rem(10) rem(115) rem(10) rem(35);
+        box-shadow: 0 rem(20) rem(40) rgba(238, 77, 71, 0.1);
         @media (max-width: $tablet) {
-            padding: 10px 95px 10px 35px;
-        }
-        @media (max-width: $mobile) {
-            padding: 10px 35px 10px 15px;
-            &::before {
-                right: 15px;
-            }
-            &::after {
-                right: 24px;
-            }
-        }
-        &::after {
-            content: "";
-            position: absolute;
-            right: 44px;
-            top: 50%;
-            transform: translate(0, -50%);
-            width: 2px;
-            height: 20px;
-            background-color: $primary_01;
-            transition: all 0.3s ease 0s;
-        }
-        &::before {
-            content: "";
-            position: absolute;
-            right: 35px;
-            top: 50%;
-            transform: translate(0, -50%);
-            width: 20px;
-            height: 2px;
-            background-color: $primary_01;
-        }
-        &._active {
-            &::after {
-                content: "";
-                height: 0;
-            }
-        }
-    }
-
-    &__spoller-body {
-        display: none;
-        background: $light_02;
-        box-shadow: 0px 20px 40px rgba(238, 77, 71, 0.1);
-        border-radius: 10px;
-        padding: 41px 35px 61px 35px;
-        margin: 0px 0px 50px 0px;
-        @media (max-width: $mobile) {
-            padding: 20px 15px 20px 15px;
-            margin-bottom: 20px;
+            padding-right: rem(50);
+            padding-left: rem(15);
         }
     }
 
     &__spoller-text {
+        background-color: $light_02;
+        box-shadow: 0px rem(20) rem(410) rgba(238, 77, 71, 0.1);
+        border-radius: rem(10);
+        padding: rem(40) rem(35) rem(60) rem(35);
+        margin-bottom: rem(50);
         font-size: rem(18);
         line-height: math.div(30, 18);
         font-weight: 300;
-    }
-    &__load {
-    }
-
-    &__load-button {
-        display: flex;
-        justify-content: flex-end;
-        flex-wrap: wrap;
+        justify-content: flex-start;
+        @media (max-width: $mobile) {
+            padding: rem(20) rem(15);
+            margin-bottom: rem(20);
+        }
     }
 
-    &__load-body {
-        flex: 1 1 100%;
-        display: none;
+    &__loaded {
     }
 
     &__load-title {
-        flex: 0 1 calc(50% - 10px);
-        background: hsla(2, 82%, 60%, 0.2);
-        border-radius: 10px;
-        cursor: pointer;
-        position: relative;
-        min-height: 90px;
-        display: flex;
+        @extend %spoller-title;
+        padding: 0px rem(30);
+        background-color: rgba(237, 75, 69, 0.2);
         justify-content: center;
-        align-items: center;
         color: $primary_03;
-        font-weight: 500;
-        font-size: 18px;
-        line-height: math.div(30, 18);
         text-transform: uppercase;
         letter-spacing: 0.05em;
-        transition: all 0.5s ease 0s;
-        @media (max-width: $mobile) {
-            flex: 1 1 100%;
+        transition: color 0.5s ease 0s;
+        @media (min-width: $mobile) {
+            width: calc(50% - rem(10));
+            margin-left: auto;
         }
-        @media (min-width: $tablet) {
+        @media (max-width: $mobile) {
+            width: 100%;
+        }
+        @media (any-hover: hover) {
             &:hover {
                 color: $mainColor;
             }
         }
-        &::after {
-            content: "";
-            position: absolute;
-            right: 44px;
-            top: 50%;
-            transform: translate(0, -50%);
-            width: 2px;
-            height: 20px;
-            background-color: $primary_01;
-            transition: all 0.3s ease 0s;
-        }
-        &::before {
-            content: "";
-            position: absolute;
-            right: 35px;
-            top: 50%;
-            transform: translate(0, -50%);
-            width: 20px;
-            height: 2px;
-            background-color: $primary_01;
-        }
-        &._active {
-            &::after {
-                content: "";
-                height: 0;
-            }
+        &._loaded {
+            display: none;
         }
     }
 
     &__bg {
         position: absolute;
-        width: 1170px;
+        width: rem(1170);
         height: 100%;
         top: 0;
         right: 0;
@@ -544,7 +451,7 @@
         @media (min-width: em(1600)) {
             width: 73%;
         }
-        @media (max-width: 1170px) {
+        @media (max-width: em(1170)) {
             width: 100%;
             border-radius: 0;
         }
